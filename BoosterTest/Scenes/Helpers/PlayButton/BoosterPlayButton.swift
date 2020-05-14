@@ -9,27 +9,18 @@ import SwiftUI
 
 
 struct BoosterPlayButton: View {
-    @State private var isPlaying: Bool = false
-
+ 
+    @ObservedObject var viewModel: BoosterViewModel
     private func playButtonText() -> String {
-        return self.isPlaying ? "Pause" : "Play"
-    }
-        
-    private var playAction: ((Bool) -> Void)?
-
-    func playAction(perform action: @escaping (_ isPlaying: Bool) -> Void ) -> Self {
-        var copy = self
-        copy.playAction = action
-        return copy
+        return self.viewModel.isPlaying ? "Pause" : "Play"
     }
     
     var body: some View {
 
         GeometryReader { geometry in
-            
+
             Button(action: {
-                self.isPlaying.toggle()
-                self.playAction?(self.isPlaying)
+                self.viewModel.updateStatus()
             }) {
                 GeometryReader { geometry_ in
                     Text(self.playButtonText())
@@ -46,6 +37,6 @@ struct BoosterPlayButton: View {
 
 struct BoosterPlayButton_Previews: PreviewProvider {
     static var previews: some View {
-        BoosterPlayButton()
+        BoosterPlayButton(viewModel: BoosterViewModel())
     }
 }
