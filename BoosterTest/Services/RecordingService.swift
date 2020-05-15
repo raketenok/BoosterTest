@@ -29,16 +29,17 @@ protocol RecordingService: AppService {
 
 class RecordingServiceImp: NSObject, RecordingService {
     
-    var finishedRecording: (BoolCallback)?
     typealias Factory = DefaultFactory
     private var recordingSession: AVAudioSession!
     private var audioRecorder: AVAudioRecorder?
-    
     
     init(factory: Factory = DefaultFactory()) {
         
     }
     
+    //MARK: RecordingService
+    var finishedRecording: (BoolCallback)?
+
     func pauseRecording() {
         self.audioRecorder?.pause()
     }
@@ -52,15 +53,29 @@ class RecordingServiceImp: NSObject, RecordingService {
             self.recordingSession = AVAudioSession.sharedInstance()
             try self.recordingSession.setCategory(.playAndRecord, mode: .default)
             try self.recordingSession.setActive(true)
+            self.recordingSession.requestRecordPermission { (isAllow) in
+           
+                guard isAllow else {
+                    self.finishedRecording?(false)
+                    return
+                }
+                self.record()
+            }
         } catch {
             print(error)
             self.finishedRecording?(false)
         }
+    }
+    
+    //MARK: Private
+    private func record() {
         
-        let audioFilename = self.getDocumentsDirectory().appendingPathComponent("recording.m4a")
+        guard let directory = self.getDocumentsDirectory() else { return }
+        
+        let audioFilename = directory.appendingPathComponent("\(Date()).m4a")
         
         let settings = [
-            AVFormatIDKey: Int(kAudioFormatAppleIMA4),
+            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
             AVSampleRateKey: 12000,
             AVNumberOfChannelsKey: 1,
             AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
@@ -79,18 +94,16 @@ class RecordingServiceImp: NSObject, RecordingService {
         }
     }
     
-    private func getDocumentsDirectory() -> URL {
+    private func getDocumentsDirectory() -> URL? {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
+        return paths.first
     }
 }
 
 extension RecordingServiceImp: AVAudioRecorderDelegate {
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        if flag {
-            self.finishedRecording?(true)
-        }
+        self.finishedRecording?(flag)
     }
     
 }

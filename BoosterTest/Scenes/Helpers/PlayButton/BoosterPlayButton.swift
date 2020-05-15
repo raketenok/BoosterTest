@@ -18,7 +18,6 @@ struct BoosterPlayButton: View {
     var body: some View {
 
         GeometryReader { geometry in
-
             Button(action: {
                 self.viewModel.updateStatus()
             }) {
@@ -31,6 +30,10 @@ struct BoosterPlayButton: View {
             .frame(width: geometry.size.width - UIScheme.Spacings.S * 2, height: UIScheme.Spacings.M).background(Color.init(.systemBlue))
             .accentColor(Color.init(.white))
             .cornerRadius(UIScheme.Spacings.M/6)
+            .alert(isPresented: self.$viewModel.isRecordingError) {
+                Alert(title: Text("Recording error"), message: Text("Check settings"))
+            }
+    
         }.frame(height: UIScheme.Spacings.M)
     }
 }

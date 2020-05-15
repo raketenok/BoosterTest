@@ -20,14 +20,14 @@ extension TimerServiceFactory {
 }
 
 protocol TimerService: AppService {
-    func playSounds(minutes: Int)
+    func playSounds(seconds: Int)
     func stopSounds()
+    var timerRemaining: Double? { get }
     var recordCallback: (EmptyCallback)? { get set }
 }
 
 class TimerServiceImp: TimerService {
-   
-    var recordCallback: (EmptyCallback)?
+ 
     typealias Factory = DefaultFactory
     private var timer = Timer()
     private var player: AVAudioPlayer?
@@ -36,15 +36,26 @@ class TimerServiceImp: TimerService {
         
     }
     
-    func playSounds(minutes: Int) {
+    //MARK: TimerService
+    var timerRemaining: Double?
+    var recordCallback: (EmptyCallback)?
+    
+    func playSounds(seconds: Int) {
         self.play()
-        let minutes: Double = Double(minutes) * 60
-        self.timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(minutes), repeats: false) { (t) in
+        self.timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(seconds), repeats: false) { (t) in
             self.stopSounds()
             self.recordCallback?()
         }
     }
     
+    func stopSounds() {
+        guard let player = self.player else { return }
+        player.pause()
+        self.timerRemaining = timer.fireDate.timeIntervalSince(Date())
+        self.timer.invalidate()
+    }
+    
+    //MARK: Private
     private func play() {
         guard let url = Bundle.main.url(forResource: "nature", withExtension: "m4a") else { return }
 
@@ -62,12 +73,4 @@ class TimerServiceImp: TimerService {
             print(error.localizedDescription)
         }
     }
-    
-        
-    func stopSounds() {
-        guard let player = self.player else { return }
-        player.pause()
-        self.timer.invalidate()
-    }
-
 }
