@@ -18,4 +18,10 @@ class UIScheme {
         static let M: CGFloat = 44
         static let L: CGFloat = 52
     }
+    
+    enum ConstantsLabels {
+        static let alarm = NSLocalizedString("Alarm", comment: "alarm")
+        static let sleepTimer = NSLocalizedString("Sleep timer", comment: "Sleeper")
+    }
+    
 }

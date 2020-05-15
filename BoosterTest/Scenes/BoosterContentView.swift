@@ -9,8 +9,7 @@ import SwiftUI
 
 struct BoosterContentView: View {
     
-    @State private var viewModel = BoosterViewModel()
-    @State private var isPlaying = false
+    @ObservedObject private var viewModel = BoosterViewModel()
 
     var body: some View {
         
@@ -18,7 +17,7 @@ struct BoosterContentView: View {
             
             VStack(alignment: .center) {
                 
-                Text(self.viewModel.playTitleText(isPlaying: self.isPlaying))
+                Text(self.viewModel.statusTitleText(status: self.viewModel.status))
                     .font(.title)
                     .fontWeight(.semibold)
                     .foregroundColor(Color.black)
@@ -28,20 +27,17 @@ struct BoosterContentView: View {
                 Divider()
                     .padding([.leading, .trailing], UIScheme.Spacings.S)
                 
-                BoosterTimeView(type: .timer)
+                BoosterTimerView(viewModel: self.viewModel)
                 
                 Divider()
                     .padding([.leading, .trailing], UIScheme.Spacings.S)
-                BoosterTimeView(type: .alarm)
+                BoosterAlarmView()
                 
                 Divider()
                     .padding([.leading, .trailing], UIScheme.Spacings.S)
                     .padding( .bottom, UIScheme.Spacings.M)
                 
-                BoosterPlayButton().playAction { (isPlaying) in
-                    self.isPlaying = isPlaying
-                    self.viewModel.playAction(isPlaying: isPlaying)
-                }
+                BoosterPlayButton(viewModel: self.viewModel)
             }
             .padding(.bottom, UIScheme.Spacings.M)
         }
