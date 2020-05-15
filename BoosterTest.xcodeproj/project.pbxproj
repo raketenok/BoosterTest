@@ -15,12 +15,23 @@
 		3B4BE426246C7AF10094B2AB /* BoosterTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE425246C7AF10094B2AB /* BoosterTestTests.swift */; };
 		3B4BE431246C7AF10094B2AB /* BoosterTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE430246C7AF10094B2AB /* BoosterTestUITests.swift */; };
 		3B4BE442246C7B6C0094B2AB /* BoosterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE441246C7B6C0094B2AB /* BoosterContentView.swift */; };
-		3B4BE446246C7BC60094B2AB /* BoosterTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE445246C7BC60094B2AB /* BoosterTimeView.swift */; };
+		3B4BE446246C7BC60094B2AB /* BoosterTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE445246C7BC60094B2AB /* BoosterTimerView.swift */; };
 		3B4BE448246C7BDE0094B2AB /* BoosterPlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE447246C7BDE0094B2AB /* BoosterPlayButton.swift */; };
 		3B4BE44A246C7BEB0094B2AB /* UIScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE449246C7BEB0094B2AB /* UIScheme.swift */; };
 		3B4BE44C246C7CF30094B2AB /* BoosterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE44B246C7CF30094B2AB /* BoosterViewModel.swift */; };
 		3B4BE44E246C9A830094B2AB /* BoosterAlarmButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE44D246C9A830094B2AB /* BoosterAlarmButton.swift */; };
 		3B4BE450246C9BC90094B2AB /* BoosterTimerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE44F246C9BC90094B2AB /* BoosterTimerButton.swift */; };
+		3B4BE452246CA4500094B2AB /* Callbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE451246CA4500094B2AB /* Callbacks.swift */; };
+		3B4BE456246CB3FB0094B2AB /* alarm.m4a in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE455246CB1810094B2AB /* alarm.m4a */; };
+		3B4BE457246CB3FB0094B2AB /* nature.m4a in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE454246CB1810094B2AB /* nature.m4a */; };
+		3B4BE458246CB5A40094B2AB /* alarm.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3B4BE455246CB1810094B2AB /* alarm.m4a */; };
+		3B4BE459246CB5A40094B2AB /* nature.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3B4BE454246CB1810094B2AB /* nature.m4a */; };
+		3B4BE45C246D2AAC0094B2AB /* BoosterAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE45B246D2AAC0094B2AB /* BoosterAlarmView.swift */; };
+		3B4BE462246D4EAD0094B2AB /* TimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE461246D4EAD0094B2AB /* TimerService.swift */; };
+		3B4BE464246D4F540094B2AB /* AlarmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE463246D4F540094B2AB /* AlarmService.swift */; };
+		3B4BE466246D4F690094B2AB /* RecordingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE465246D4F690094B2AB /* RecordingService.swift */; };
+		3B4BE468246D55100094B2AB /* DefaultFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE467246D55100094B2AB /* DefaultFactory.swift */; };
+		3B4BE46A246D75610094B2AB /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE469246D75610094B2AB /* AppManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,12 +66,21 @@
 		3B4BE430246C7AF10094B2AB /* BoosterTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterTestUITests.swift; sourceTree = "<group>"; };
 		3B4BE432246C7AF10094B2AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B4BE441246C7B6C0094B2AB /* BoosterContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterContentView.swift; sourceTree = "<group>"; };
-		3B4BE445246C7BC60094B2AB /* BoosterTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterTimeView.swift; sourceTree = "<group>"; };
+		3B4BE445246C7BC60094B2AB /* BoosterTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterTimerView.swift; sourceTree = "<group>"; };
 		3B4BE447246C7BDE0094B2AB /* BoosterPlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterPlayButton.swift; sourceTree = "<group>"; };
 		3B4BE449246C7BEB0094B2AB /* UIScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScheme.swift; sourceTree = "<group>"; };
 		3B4BE44B246C7CF30094B2AB /* BoosterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterViewModel.swift; sourceTree = "<group>"; };
 		3B4BE44D246C9A830094B2AB /* BoosterAlarmButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterAlarmButton.swift; sourceTree = "<group>"; };
 		3B4BE44F246C9BC90094B2AB /* BoosterTimerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterTimerButton.swift; sourceTree = "<group>"; };
+		3B4BE451246CA4500094B2AB /* Callbacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Callbacks.swift; sourceTree = "<group>"; };
+		3B4BE454246CB1810094B2AB /* nature.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = nature.m4a; sourceTree = "<group>"; };
+		3B4BE455246CB1810094B2AB /* alarm.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = alarm.m4a; sourceTree = "<group>"; };
+		3B4BE45B246D2AAC0094B2AB /* BoosterAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterAlarmView.swift; sourceTree = "<group>"; };
+		3B4BE461246D4EAD0094B2AB /* TimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerService.swift; sourceTree = "<group>"; };
+		3B4BE463246D4F540094B2AB /* AlarmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmService.swift; sourceTree = "<group>"; };
+		3B4BE465246D4F690094B2AB /* RecordingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingService.swift; sourceTree = "<group>"; };
+		3B4BE467246D55100094B2AB /* DefaultFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFactory.swift; sourceTree = "<group>"; };
+		3B4BE469246D75610094B2AB /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +133,11 @@
 			children = (
 				3B4BE40E246C7AED0094B2AB /* AppDelegate.swift */,
 				3B4BE410246C7AED0094B2AB /* SceneDelegate.swift */,
-				3B4BE43F246C7B280094B2AB /* Helpers */,
+				3B4BE469246D75610094B2AB /* AppManager.swift */,
+				3B4BE467246D55100094B2AB /* DefaultFactory.swift */,
 				3B4BE43E246C7B1E0094B2AB /* Scenes */,
+				3B4BE45A246CB60A0094B2AB /* Services */,
+				3B4BE43F246C7B280094B2AB /* Helpers */,
 				3B4BE414246C7AF00094B2AB /* Assets.xcassets */,
 				3B4BE419246C7AF00094B2AB /* LaunchScreen.storyboard */,
 				3B4BE41C246C7AF00094B2AB /* Info.plist */,
@@ -152,9 +175,9 @@
 		3B4BE43E246C7B1E0094B2AB /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				3B4BE44B246C7CF30094B2AB /* BoosterViewModel.swift */,
 				3B4BE441246C7B6C0094B2AB /* BoosterContentView.swift */,
 				3B4BE443246C7B8E0094B2AB /* Helpers */,
-				3B4BE44B246C7CF30094B2AB /* BoosterViewModel.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -162,7 +185,9 @@
 		3B4BE43F246C7B280094B2AB /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				3B4BE453246CB1770094B2AB /* Sounds */,
 				3B4BE449246C7BEB0094B2AB /* UIScheme.swift */,
+				3B4BE451246CA4500094B2AB /* Callbacks.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -170,12 +195,56 @@
 		3B4BE443246C7B8E0094B2AB /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				3B4BE445246C7BC60094B2AB /* BoosterTimeView.swift */,
-				3B4BE447246C7BDE0094B2AB /* BoosterPlayButton.swift */,
-				3B4BE44D246C9A830094B2AB /* BoosterAlarmButton.swift */,
-				3B4BE44F246C9BC90094B2AB /* BoosterTimerButton.swift */,
+				3B4BE45E246D450F0094B2AB /* Alarm */,
+				3B4BE45D246D45060094B2AB /* Timer */,
+				3B4BE460246D45210094B2AB /* PlayButton */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3B4BE453246CB1770094B2AB /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				3B4BE455246CB1810094B2AB /* alarm.m4a */,
+				3B4BE454246CB1810094B2AB /* nature.m4a */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		3B4BE45A246CB60A0094B2AB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3B4BE461246D4EAD0094B2AB /* TimerService.swift */,
+				3B4BE463246D4F540094B2AB /* AlarmService.swift */,
+				3B4BE465246D4F690094B2AB /* RecordingService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3B4BE45D246D45060094B2AB /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				3B4BE445246C7BC60094B2AB /* BoosterTimerView.swift */,
+				3B4BE44F246C9BC90094B2AB /* BoosterTimerButton.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		3B4BE45E246D450F0094B2AB /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				3B4BE45B246D2AAC0094B2AB /* BoosterAlarmView.swift */,
+				3B4BE44D246C9A830094B2AB /* BoosterAlarmButton.swift */,
+			);
+			path = Alarm;
+			sourceTree = "<group>";
+		};
+		3B4BE460246D45210094B2AB /* PlayButton */ = {
+			isa = PBXGroup;
+			children = (
+				3B4BE447246C7BDE0094B2AB /* BoosterPlayButton.swift */,
+			);
+			path = PlayButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +350,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B4BE458246CB5A40094B2AB /* alarm.m4a in Resources */,
+				3B4BE459246CB5A40094B2AB /* nature.m4a in Resources */,
 				3B4BE41B246C7AF00094B2AB /* LaunchScreen.storyboard in Resources */,
 				3B4BE418246C7AF00094B2AB /* Preview Assets.xcassets in Resources */,
 				3B4BE415246C7AF00094B2AB /* Assets.xcassets in Resources */,
@@ -308,15 +379,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B4BE456246CB3FB0094B2AB /* alarm.m4a in Sources */,
+				3B4BE464246D4F540094B2AB /* AlarmService.swift in Sources */,
+				3B4BE457246CB3FB0094B2AB /* nature.m4a in Sources */,
+				3B4BE468246D55100094B2AB /* DefaultFactory.swift in Sources */,
 				3B4BE44A246C7BEB0094B2AB /* UIScheme.swift in Sources */,
 				3B4BE450246C9BC90094B2AB /* BoosterTimerButton.swift in Sources */,
 				3B4BE40F246C7AED0094B2AB /* AppDelegate.swift in Sources */,
+				3B4BE45C246D2AAC0094B2AB /* BoosterAlarmView.swift in Sources */,
 				3B4BE411246C7AED0094B2AB /* SceneDelegate.swift in Sources */,
-				3B4BE446246C7BC60094B2AB /* BoosterTimeView.swift in Sources */,
+				3B4BE446246C7BC60094B2AB /* BoosterTimerView.swift in Sources */,
 				3B4BE448246C7BDE0094B2AB /* BoosterPlayButton.swift in Sources */,
+				3B4BE452246CA4500094B2AB /* Callbacks.swift in Sources */,
 				3B4BE44E246C9A830094B2AB /* BoosterAlarmButton.swift in Sources */,
+				3B4BE462246D4EAD0094B2AB /* TimerService.swift in Sources */,
 				3B4BE44C246C7CF30094B2AB /* BoosterViewModel.swift in Sources */,
+				3B4BE46A246D75610094B2AB /* AppManager.swift in Sources */,
 				3B4BE442246C7B6C0094B2AB /* BoosterContentView.swift in Sources */,
+				3B4BE466246D4F690094B2AB /* RecordingService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
