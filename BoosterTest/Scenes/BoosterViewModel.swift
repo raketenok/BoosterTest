@@ -32,7 +32,10 @@ class BoosterViewModel: ObservableObject {
     @Published private(set) var timerData = TimerData.off
     @Published private(set) var status: StatusType = .Idle
     @Published private(set) var isPlaying: Bool = false
+    @Published private(set) var alarmDate = Date().minAlarmDate()
+
     @Published var isRecordingError: Bool = false
+    @Published var isDatePickerShowed: Bool = true
 
     private var timer = Timer()
     private let timerService: TimerService!
@@ -42,6 +45,7 @@ class BoosterViewModel: ObservableObject {
     private var timerRemaining: Int = 0
     
     init(factory: Factory = DefaultFactory()) {
+        
         self.timerService = factory.makeTimeService()
         self.alarmService = factory.makeAlarmService()
         self.recordingService = factory.makeRecordingService()
@@ -58,6 +62,11 @@ class BoosterViewModel: ObservableObject {
             self?.isPlaying = false
             self?.isRecordingError = !success
         }
+    }
+    
+    func updateAlarm(date: Date) {
+        self.alarmDate = date
+        self.alarmService.startAlarm(date: date)
     }
     
     func statusTitleText(status: StatusType) -> String {
@@ -112,4 +121,6 @@ class BoosterViewModel: ObservableObject {
         self.timerRemaining = self.timerData.rawValue * 60
     }
 }
+
+
 

@@ -32,6 +32,9 @@
 		3B4BE466246D4F690094B2AB /* RecordingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE465246D4F690094B2AB /* RecordingService.swift */; };
 		3B4BE468246D55100094B2AB /* DefaultFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE467246D55100094B2AB /* DefaultFactory.swift */; };
 		3B4BE46A246D75610094B2AB /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE469246D75610094B2AB /* AppManager.swift */; };
+		3B4BE46E246EECED0094B2AB /* BoosterAlarmPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE46D246EECED0094B2AB /* BoosterAlarmPicker.swift */; };
+		3B532E57246FE62500D61F87 /* BoosterAlarmPickerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B532E56246FE62500D61F87 /* BoosterAlarmPickerHeader.swift */; };
+		3B532E59246FE7BE00D61F87 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B532E58246FE7BE00D61F87 /* Date+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +84,9 @@
 		3B4BE465246D4F690094B2AB /* RecordingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingService.swift; sourceTree = "<group>"; };
 		3B4BE467246D55100094B2AB /* DefaultFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFactory.swift; sourceTree = "<group>"; };
 		3B4BE469246D75610094B2AB /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		3B4BE46D246EECED0094B2AB /* BoosterAlarmPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterAlarmPicker.swift; sourceTree = "<group>"; };
+		3B532E56246FE62500D61F87 /* BoosterAlarmPickerHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterAlarmPickerHeader.swift; sourceTree = "<group>"; };
+		3B532E58246FE7BE00D61F87 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,7 +183,7 @@
 			children = (
 				3B4BE44B246C7CF30094B2AB /* BoosterViewModel.swift */,
 				3B4BE441246C7B6C0094B2AB /* BoosterContentView.swift */,
-				3B4BE443246C7B8E0094B2AB /* Helpers */,
+				3B4BE443246C7B8E0094B2AB /* HelpersViews */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -188,18 +194,19 @@
 				3B4BE453246CB1770094B2AB /* Sounds */,
 				3B4BE449246C7BEB0094B2AB /* UIScheme.swift */,
 				3B4BE451246CA4500094B2AB /* Callbacks.swift */,
+				3B532E58246FE7BE00D61F87 /* Date+Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		3B4BE443246C7B8E0094B2AB /* Helpers */ = {
+		3B4BE443246C7B8E0094B2AB /* HelpersViews */ = {
 			isa = PBXGroup;
 			children = (
 				3B4BE45E246D450F0094B2AB /* Alarm */,
 				3B4BE45D246D45060094B2AB /* Timer */,
 				3B4BE460246D45210094B2AB /* PlayButton */,
 			);
-			path = Helpers;
+			path = HelpersViews;
 			sourceTree = "<group>";
 		};
 		3B4BE453246CB1770094B2AB /* Sounds */ = {
@@ -235,6 +242,8 @@
 			children = (
 				3B4BE45B246D2AAC0094B2AB /* BoosterAlarmView.swift */,
 				3B4BE44D246C9A830094B2AB /* BoosterAlarmButton.swift */,
+				3B4BE46D246EECED0094B2AB /* BoosterAlarmPicker.swift */,
+				3B532E56246FE62500D61F87 /* BoosterAlarmPickerHeader.swift */,
 			);
 			path = Alarm;
 			sourceTree = "<group>";
@@ -381,7 +390,9 @@
 			files = (
 				3B4BE456246CB3FB0094B2AB /* alarm.m4a in Sources */,
 				3B4BE464246D4F540094B2AB /* AlarmService.swift in Sources */,
+				3B532E59246FE7BE00D61F87 /* Date+Extensions.swift in Sources */,
 				3B4BE457246CB3FB0094B2AB /* nature.m4a in Sources */,
+				3B532E57246FE62500D61F87 /* BoosterAlarmPickerHeader.swift in Sources */,
 				3B4BE468246D55100094B2AB /* DefaultFactory.swift in Sources */,
 				3B4BE44A246C7BEB0094B2AB /* UIScheme.swift in Sources */,
 				3B4BE450246C9BC90094B2AB /* BoosterTimerButton.swift in Sources */,
@@ -397,6 +408,7 @@
 				3B4BE46A246D75610094B2AB /* AppManager.swift in Sources */,
 				3B4BE442246C7B6C0094B2AB /* BoosterContentView.swift in Sources */,
 				3B4BE466246D4F690094B2AB /* RecordingService.swift in Sources */,
+				3B4BE46E246EECED0094B2AB /* BoosterAlarmPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

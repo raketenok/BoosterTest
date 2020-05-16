@@ -19,14 +19,27 @@ extension AlarmServiceFactory {
 
 protocol AlarmService: AppService {
     
+    var alarmCallback: (EmptyCallback)? { get set }
+    func startAlarm(date: Date)
+    
 }
 
 class AlarmServiceImp: AlarmService {
+    var alarmCallback: (EmptyCallback)?
+    
+   
+    
     typealias Factory = DefaultFactory
+    private var timer = Timer()
 
+    
     init(factory: Factory = DefaultFactory()) {
         
         
         
+    }
+    
+    func startAlarm(date: Date) {
+           
     }
 }

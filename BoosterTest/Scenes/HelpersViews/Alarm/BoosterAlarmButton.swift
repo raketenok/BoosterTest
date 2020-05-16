@@ -8,33 +8,27 @@
 import SwiftUI
 
 struct BoosterAlarmButton: View {
-    @State private var isAlarmPresent: Bool = false
-        
+  //  @State private var isPresented: Bool = false
+    @ObservedObject var viewModel: BoosterViewModel
+
     var body: some View {
         Button(action: {
-            self.isAlarmPresent.toggle()
-            
+            self.viewModel.isDatePickerShowed.toggle()
         }) {
             HStack {
                 Spacer()
-                //TODO: SET PICKER DATA
-                Text("self.timeText()")
+                Text(self.viewModel.alarmDate.stringTime())
                     .font(.callout)
                     .fontWeight(.bold)
             }
         }
-        .frame(width: 100)
+        .frame(width: 200)
         .accentColor(Color(.systemBlue))
-        .actionSheet(isPresented: self.$isAlarmPresent, content: {
-            ActionSheet(title: Text(UIScheme.ConstantsLabels.alarm), buttons: [
-                .cancel()
-            ])
-        })
     }
 }
 
 struct BoosterAlarmButton_Previews: PreviewProvider {
     static var previews: some View {
-        BoosterAlarmButton()
+        BoosterAlarmButton(viewModel: BoosterViewModel())
     }
 }
