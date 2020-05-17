@@ -27,7 +27,7 @@
 		3B4BE458246CB5A40094B2AB /* alarm.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3B4BE455246CB1810094B2AB /* alarm.m4a */; };
 		3B4BE459246CB5A40094B2AB /* nature.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3B4BE454246CB1810094B2AB /* nature.m4a */; };
 		3B4BE45C246D2AAC0094B2AB /* BoosterAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE45B246D2AAC0094B2AB /* BoosterAlarmView.swift */; };
-		3B4BE462246D4EAD0094B2AB /* TimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE461246D4EAD0094B2AB /* TimerService.swift */; };
+		3B4BE462246D4EAD0094B2AB /* PlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE461246D4EAD0094B2AB /* PlayerService.swift */; };
 		3B4BE464246D4F540094B2AB /* AlarmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE463246D4F540094B2AB /* AlarmService.swift */; };
 		3B4BE466246D4F690094B2AB /* RecordingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE465246D4F690094B2AB /* RecordingService.swift */; };
 		3B4BE468246D55100094B2AB /* DefaultFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE467246D55100094B2AB /* DefaultFactory.swift */; };
@@ -35,6 +35,7 @@
 		3B4BE46E246EECED0094B2AB /* BoosterAlarmPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE46D246EECED0094B2AB /* BoosterAlarmPicker.swift */; };
 		3B532E57246FE62500D61F87 /* BoosterAlarmPickerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B532E56246FE62500D61F87 /* BoosterAlarmPickerHeader.swift */; };
 		3B532E59246FE7BE00D61F87 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B532E58246FE7BE00D61F87 /* Date+Extensions.swift */; };
+		3B532E5F24719A0800D61F87 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B532E5E24719A0800D61F87 /* NotificationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +80,7 @@
 		3B4BE454246CB1810094B2AB /* nature.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = nature.m4a; sourceTree = "<group>"; };
 		3B4BE455246CB1810094B2AB /* alarm.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = alarm.m4a; sourceTree = "<group>"; };
 		3B4BE45B246D2AAC0094B2AB /* BoosterAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterAlarmView.swift; sourceTree = "<group>"; };
-		3B4BE461246D4EAD0094B2AB /* TimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerService.swift; sourceTree = "<group>"; };
+		3B4BE461246D4EAD0094B2AB /* PlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerService.swift; sourceTree = "<group>"; };
 		3B4BE463246D4F540094B2AB /* AlarmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmService.swift; sourceTree = "<group>"; };
 		3B4BE465246D4F690094B2AB /* RecordingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingService.swift; sourceTree = "<group>"; };
 		3B4BE467246D55100094B2AB /* DefaultFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFactory.swift; sourceTree = "<group>"; };
@@ -87,6 +88,7 @@
 		3B4BE46D246EECED0094B2AB /* BoosterAlarmPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterAlarmPicker.swift; sourceTree = "<group>"; };
 		3B532E56246FE62500D61F87 /* BoosterAlarmPickerHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterAlarmPickerHeader.swift; sourceTree = "<group>"; };
 		3B532E58246FE7BE00D61F87 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		3B532E5E24719A0800D61F87 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,9 +223,10 @@
 		3B4BE45A246CB60A0094B2AB /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				3B4BE461246D4EAD0094B2AB /* TimerService.swift */,
+				3B4BE461246D4EAD0094B2AB /* PlayerService.swift */,
 				3B4BE463246D4F540094B2AB /* AlarmService.swift */,
 				3B4BE465246D4F690094B2AB /* RecordingService.swift */,
+				3B532E5E24719A0800D61F87 /* NotificationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -400,10 +403,11 @@
 				3B4BE45C246D2AAC0094B2AB /* BoosterAlarmView.swift in Sources */,
 				3B4BE411246C7AED0094B2AB /* SceneDelegate.swift in Sources */,
 				3B4BE446246C7BC60094B2AB /* BoosterTimerView.swift in Sources */,
+				3B532E5F24719A0800D61F87 /* NotificationService.swift in Sources */,
 				3B4BE448246C7BDE0094B2AB /* BoosterPlayButton.swift in Sources */,
 				3B4BE452246CA4500094B2AB /* Callbacks.swift in Sources */,
 				3B4BE44E246C9A830094B2AB /* BoosterAlarmButton.swift in Sources */,
-				3B4BE462246D4EAD0094B2AB /* TimerService.swift in Sources */,
+				3B4BE462246D4EAD0094B2AB /* PlayerService.swift in Sources */,
 				3B4BE44C246C7CF30094B2AB /* BoosterViewModel.swift in Sources */,
 				3B4BE46A246D75610094B2AB /* AppManager.swift in Sources */,
 				3B4BE442246C7B6C0094B2AB /* BoosterContentView.swift in Sources */,
@@ -575,14 +579,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"BoosterTest/Preview Content\"";
-				DEVELOPMENT_TEAM = HC283GCJT3;
+				DEVELOPMENT_TEAM = DEMAEM79RP;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = BoosterTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = raketenok.BoosterTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cloudmade.ios.cloudmadeNewApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -595,14 +599,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"BoosterTest/Preview Content\"";
-				DEVELOPMENT_TEAM = HC283GCJT3;
+				DEVELOPMENT_TEAM = DEMAEM79RP;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = BoosterTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = raketenok.BoosterTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cloudmade.ios.cloudmadeNewApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

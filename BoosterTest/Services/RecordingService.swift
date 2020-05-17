@@ -23,22 +23,19 @@ protocol RecordingService: AppService {
     func startRecording()
     func stopRecording()
     func pauseRecording()
-    
-    var finishedRecording: (BoolCallback)? { get set }
+    var recordFinishCallback: (BoolCallback)? { get set }
 }
 
 class RecordingServiceImp: NSObject, RecordingService {
     
     typealias Factory = DefaultFactory
-    private var recordingSession: AVAudioSession!
     private var audioRecorder: AVAudioRecorder?
     
     init(factory: Factory = DefaultFactory()) {
-        
     }
     
     //MARK: RecordingService
-    var finishedRecording: (BoolCallback)?
+    var recordFinishCallback: (BoolCallback)?
 
     func pauseRecording() {
         self.audioRecorder?.pause()
@@ -50,20 +47,19 @@ class RecordingServiceImp: NSObject, RecordingService {
     
     func startRecording() {
         do {
-            self.recordingSession = AVAudioSession.sharedInstance()
-            try self.recordingSession.setCategory(.playAndRecord, mode: .default)
-            try self.recordingSession.setActive(true)
-            self.recordingSession.requestRecordPermission { (isAllow) in
+            try AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+
+            AVAudioSession.sharedInstance().requestRecordPermission { (isAllow) in
            
                 guard isAllow else {
-                    self.finishedRecording?(false)
+                    self.recordFinishCallback?(false)
                     return
                 }
                 self.record()
             }
         } catch {
-            print(error)
-            self.finishedRecording?(false)
+            self.recordFinishCallback?(false)
         }
     }
     
@@ -89,8 +85,7 @@ class RecordingServiceImp: NSObject, RecordingService {
             audioRecorder.record()
 
         } catch {
-            print(error)
-            self.finishedRecording?(false)
+            self.recordFinishCallback?(false)
         }
     }
     
@@ -98,12 +93,13 @@ class RecordingServiceImp: NSObject, RecordingService {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths.first
     }
+    
 }
 
 extension RecordingServiceImp: AVAudioRecorderDelegate {
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        self.finishedRecording?(flag)
+        self.recordFinishCallback?(flag)
     }
     
 }

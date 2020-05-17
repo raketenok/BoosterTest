@@ -16,17 +16,15 @@ struct BoosterAlarmPickerHeader: View {
         HStack {
             Button(action: {
                 self.viewModel.isDatePickerShowed.toggle()
-
             }) {
                 Text("Cancel")
             }.padding()
             Spacer()
-            Text("Alarm").padding()
+            Text("Alarm").padding().accentColor(Color.white)
             Spacer()
             Button(action: {
                 self.viewModel.isDatePickerShowed.toggle()
-                let dateNow = Date().minAlarmDate()
-                self.viewModel.updateAlarm(date: dateNow.isDescendingThan(self.time) ? dateNow : self.time)
+                self.viewModel.updateAlarm(date: self.time)
             }) {
                 Text("Done")
             }.padding()

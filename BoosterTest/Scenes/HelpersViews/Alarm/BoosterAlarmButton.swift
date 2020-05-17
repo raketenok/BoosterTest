@@ -17,13 +17,13 @@ struct BoosterAlarmButton: View {
         }) {
             HStack {
                 Spacer()
-                Text(self.viewModel.alarmDate.stringTime())
+                Text(self.viewModel.alarmDate?.stringTime() ?? "Off")
                     .font(.callout)
                     .fontWeight(.bold)
             }
         }
         .frame(width: 200)
-        .accentColor(Color(.systemBlue))
+        .accentColor(Color.blue)
     }
 }
 

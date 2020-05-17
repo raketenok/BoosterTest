@@ -8,5 +8,4 @@
 import Foundation
 
 typealias EmptyCallback = () -> Void
-typealias BoolCallback = (Bool) -> Void
-typealias TimerDataCallback = (TimerData) -> Void
+typealias BoolCallback = (_ true: Bool) -> Void

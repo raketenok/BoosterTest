@@ -27,8 +27,14 @@ extension Date {
     }
     
     func minAlarmDate() -> Date {
-        guard let date = Calendar.current.date(byAdding: .minute, value: 1, to: self) else { return self }
-        return date
+        guard let date = Calendar.current.date(byAdding: .minute, value: 1, to: self) else { return self.zeroSeconds }
+        return date.zeroSeconds
     }
+    
+   private var zeroSeconds: Date {
+       let calendar = Calendar.current
+       let dateComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: self)
+       return calendar.date(from: dateComponents) ?? Date()
+   }
     
 }

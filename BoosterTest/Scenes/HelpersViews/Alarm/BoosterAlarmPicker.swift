@@ -26,7 +26,7 @@ struct BoosterAlarmPicker: View {
                         "",
                         selection: self.$time,
                         in: Date().minAlarmDate()..., displayedComponents: .hourAndMinute
-                    )
+                    ).background(Color.white)
                 }.frame(height: 280)
                     .background(Color.white)
                    
