@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BoosterContentView: View {
     
-    @ObservedObject private var viewModel = BoosterViewModel()
+    @EnvironmentObject private var viewModel: BoosterViewModel
     var body: some View {
         
         ZStack {
@@ -25,22 +25,22 @@ struct BoosterContentView: View {
                 Divider()
                     .padding([.leading, .trailing], UIScheme.Spacings.S)
                 
-                BoosterTimerView(viewModel: viewModel)
+                BoosterTimerView()
                 
                 Divider()
                     .padding([.leading, .trailing], UIScheme.Spacings.S)
-                BoosterAlarmView(viewModel: viewModel)
+                BoosterAlarmView()
                 
                 Divider()
                     .padding([.leading, .trailing], UIScheme.Spacings.S)
                     .padding( .bottom, UIScheme.Spacings.M)
                 
-                BoosterPlayButton(viewModel: viewModel)
+                BoosterPlayButton()
             }
             .padding(.bottom, UIScheme.Spacings.M)
             
             if self.viewModel.isDatePickerShowed {
-                BoosterAlarmPicker(viewModel: self.viewModel)
+                BoosterAlarmPicker()
             }
         }
         .alert(isPresented: self.$viewModel.showAlert) {

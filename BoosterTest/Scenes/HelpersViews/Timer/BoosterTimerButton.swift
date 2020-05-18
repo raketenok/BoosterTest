@@ -10,7 +10,7 @@ import SwiftUI
 
 struct BoosterTimerButton: View {
   
-    @ObservedObject var viewModel: BoosterViewModel
+    @EnvironmentObject private var viewModel: BoosterViewModel
     @State private var isTimerPresent: Bool = false
     
     var body: some View {
@@ -61,6 +61,6 @@ struct BoosterTimerButton: View {
 
 struct BoosterTimerButton_Previews: PreviewProvider {
     static var previews: some View {
-        BoosterTimerButton(viewModel: BoosterViewModel())
+        BoosterTimerButton()
     }
 }

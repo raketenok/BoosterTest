@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BoosterAlarmPicker: View {
     
-    @ObservedObject var viewModel: BoosterViewModel
+    @EnvironmentObject private var viewModel: BoosterViewModel
     @State private var time = Date().minAlarmDate()
 
     var body: some View {
@@ -19,7 +19,7 @@ struct BoosterAlarmPicker: View {
             VStack {
                 Spacer()
                 VStack {
-                    BoosterAlarmPickerHeader(viewModel: self.viewModel, time: self.$time)
+                    BoosterAlarmPickerHeader(time: self.$time)
                     Divider()
                     Spacer()
                     DatePicker(
@@ -37,7 +37,7 @@ struct BoosterAlarmPicker: View {
 
 struct BoosterAlarmPicker_Previews: PreviewProvider {
     static var previews: some View {
-        BoosterAlarmPicker(viewModel: BoosterViewModel())
+        BoosterAlarmPicker()
     }
 }
 

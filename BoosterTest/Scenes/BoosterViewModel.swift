@@ -42,10 +42,10 @@ class BoosterViewModel: ObservableObject {
     @Published var isDatePickerShowed: Bool = false
 
     private(set) var activeAlert: ActiveAlert = .alarm
+    private(set) var timerRemaining: Int = 0
     private let playerService: PlayerService!
     private let alarmService: AlarmService!
     private let recordingService: RecordingService!
-    private var timerRemaining: Int = 0
     
     init(factory: Factory = DefaultFactory()) {
         
@@ -80,6 +80,11 @@ class BoosterViewModel: ObservableObject {
             self?.status = .Idle
             self?.isPlaying = false
         }
+
+    }
+    
+    func statusTitleText(status: StatusType) -> String {
+        return status.rawValue
     }
 
     func updateAlarm(date: Date) {
@@ -87,10 +92,6 @@ class BoosterViewModel: ObservableObject {
         let selectedDate = dateNow.isDescendingThan(date) ? dateNow : date
         self.alarmDate = selectedDate
         self.alarmService.startAlarm(date: selectedDate)
-    }
-    
-    func statusTitleText(status: StatusType) -> String {
-        return status.rawValue
     }
     
     func stopAlarmSounds() {

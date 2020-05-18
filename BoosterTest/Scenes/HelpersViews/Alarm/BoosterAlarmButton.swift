@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct BoosterAlarmButton: View {
-  //  @State private var isPresented: Bool = false
-    @ObservedObject var viewModel: BoosterViewModel
+    @EnvironmentObject private var viewModel: BoosterViewModel
 
     var body: some View {
         Button(action: {
@@ -29,6 +28,6 @@ struct BoosterAlarmButton: View {
 
 struct BoosterAlarmButton_Previews: PreviewProvider {
     static var previews: some View {
-        BoosterAlarmButton(viewModel: BoosterViewModel())
+        BoosterAlarmButton()
     }
 }

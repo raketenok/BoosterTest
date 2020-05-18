@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BoosterAlarmPickerHeader: View {
     
-    @ObservedObject var viewModel: BoosterViewModel
+    @EnvironmentObject private var viewModel: BoosterViewModel
     @Binding var time: Date
     
     var body: some View {
@@ -36,6 +36,6 @@ struct BoosterAlarmPickerHeader: View {
 
 struct BoosterAlarmPickerHeader_Previews: PreviewProvider {
     static var previews: some View {
-        BoosterAlarmPickerHeader(viewModel: BoosterViewModel(), time: .constant(Date()))
+        BoosterAlarmPickerHeader(time: .constant(Date()))
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct BoosterPlayButton: View {
     
-    @ObservedObject var viewModel: BoosterViewModel
+    @EnvironmentObject private var viewModel: BoosterViewModel
     private func playButtonText() -> String {
         return self.viewModel.isPlaying ? "Pause" : "Play"
     }
@@ -37,6 +37,6 @@ struct BoosterPlayButton: View {
 
 struct BoosterPlayButton_Previews: PreviewProvider {
     static var previews: some View {
-        BoosterPlayButton(viewModel: BoosterViewModel())
+        BoosterPlayButton()
     }
 }

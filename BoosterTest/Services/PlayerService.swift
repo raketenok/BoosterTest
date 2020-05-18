@@ -33,6 +33,7 @@ class PlayerServiceImp: NSObject, PlayerService {
     typealias Factory = DefaultFactory
     private var timer = Timer()
     private var player: AVAudioPlayer?
+    private let theSession = AVAudioSession.sharedInstance()
 
     init(factory: Factory = DefaultFactory()) {
         super.init()
@@ -45,6 +46,7 @@ class PlayerServiceImp: NSObject, PlayerService {
     
     func playSounds(seconds: Int, trackName: String) {
         self.play(trackName: trackName)
+
         self.timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(seconds), repeats: false) { (t) in
             self.pauseSounds()
             self.finishedByStop?(false)
@@ -78,8 +80,9 @@ class PlayerServiceImp: NSObject, PlayerService {
         guard let url = Bundle.main.url(forResource: trackName, withExtension: "m4a") else { return }
 
         do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-            try AVAudioSession.sharedInstance().setActive(true)
+            try self.theSession.setCategory(.playback, options: .mixWithOthers)
+
+            try self.theSession.setActive(true)
 
             self.player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.m4a.rawValue)
             
@@ -92,8 +95,7 @@ class PlayerServiceImp: NSObject, PlayerService {
         }
     }
     
-    
-    @objc func handleInterruption(notification: Notification) {
+    @objc private func handleInterruption(notification: Notification) {
         guard let userInfo = notification.userInfo,
             let typeValue = userInfo[AVAudioSessionInterruptionTypeKey] as? UInt,
             let type = AVAudioSession.InterruptionType(rawValue: typeValue) else {
@@ -102,23 +104,18 @@ class PlayerServiceImp: NSObject, PlayerService {
 
         // Switch over the interruption type.
         switch type {
-
         case .began:
-            print("dasdaskjdlaksldjaslkjd")
-            // An interruption began. Update the UI as needed.
-
+            print("")
+            self.player?.stop()
         case .ended:
-           // An interruption ended. Resume playback, if appropriate.
-
             guard let optionsValue = userInfo[AVAudioSessionInterruptionOptionKey] as? UInt else { return }
             let options = AVAudioSession.InterruptionOptions(rawValue: optionsValue)
             if options.contains(.shouldResume) {
-                
-                // Interruption ended. Playback should resume.
-            } else {
-                // Interruption ended. Playback should not resume.
+                try? self.theSession.setActive(true)
+                if self.timer.isValid {
+                    self.player?.play()
+                }
             }
-
         default: ()
         }
     }

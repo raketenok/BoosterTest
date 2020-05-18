@@ -10,12 +10,12 @@ import UIKit
 
 protocol AppService: NSObject, UIApplicationDelegate { }
 
-class AppManager: NSObject {
+class AppManager {
   
     private var services: [AppService] = []
     static let shared = AppManager()
     
-    private override init() { }
+    private init() { }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
@@ -31,7 +31,7 @@ class AppManager: NSObject {
         let recordingService = RecordingServiceImp()
         self.services.append(recordingService)
 
-        self.services.forEach() { let _ = $0.application?(application, didFinishLaunchingWithOptions: launchOptions) }
+        self.services.forEach() { _ = $0.application?(application, didFinishLaunchingWithOptions: launchOptions) }
         return true
     }
     
