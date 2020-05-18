@@ -7,6 +7,7 @@
 
 import Foundation
 import AVFoundation
+import UIKit
 
 protocol RecordingServiceFactory: class {
     func makeRecordingService() -> RecordingService
@@ -19,51 +20,58 @@ extension RecordingServiceFactory {
 }
 
 protocol RecordingService: AppService {
-    
+
     func startRecording()
     func stopRecording()
     func pauseRecording()
-    
-    var finishedRecording: (BoolCallback)? { get set }
+    var recordFinishCallback: (BoolCallback)? { get set }
 }
 
 class RecordingServiceImp: NSObject, RecordingService {
     
     typealias Factory = DefaultFactory
-    private var recordingSession: AVAudioSession!
     private var audioRecorder: AVAudioRecorder?
+    private let theSession = AVAudioSession.sharedInstance()
+    private var isActive = false
     
     init(factory: Factory = DefaultFactory()) {
+        super.init()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleInterruption(notification:)), name: AVAudioSession.interruptionNotification, object: nil)
+    }
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
+        self.requestRecordingPermission(result: { success in })
+        return true
     }
     
     //MARK: RecordingService
-    var finishedRecording: (BoolCallback)?
-
+    var recordFinishCallback: (BoolCallback)?
+    
     func pauseRecording() {
         self.audioRecorder?.pause()
     }
     
     func stopRecording() {
         self.audioRecorder?.stop()
+        self.isActive = false
     }
     
     func startRecording() {
         do {
-            self.recordingSession = AVAudioSession.sharedInstance()
-            try self.recordingSession.setCategory(.playAndRecord, mode: .default)
-            try self.recordingSession.setActive(true)
-            self.recordingSession.requestRecordPermission { (isAllow) in
-           
-                guard isAllow else {
-                    self.finishedRecording?(false)
+            try self.theSession.setCategory(.playAndRecord, options: .mixWithOthers)
+
+            try self.theSession.setActive(true)
+            self.requestRecordingPermission { success in
+                
+                guard success else {
+                    self.recordFinishCallback?(false)
                     return
                 }
                 self.record()
-            }
+            }            
         } catch {
-            print(error)
-            self.finishedRecording?(false)
+            self.recordFinishCallback?(false)
         }
     }
     
@@ -87,10 +95,10 @@ class RecordingServiceImp: NSObject, RecordingService {
             
             audioRecorder.delegate = self
             audioRecorder.record()
+            self.isActive = true
 
         } catch {
-            print(error)
-            self.finishedRecording?(false)
+            self.recordFinishCallback?(false)
         }
     }
     
@@ -98,12 +106,45 @@ class RecordingServiceImp: NSObject, RecordingService {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths.first
     }
+    
+    private func requestRecordingPermission(result: @escaping BoolCallback) {
+        self.theSession.requestRecordPermission { (isAllow) in
+             result(isAllow)
+         }
+    }
+    
+    
+    @objc private func handleInterruption(notification: Notification) {
+         guard let userInfo = notification.userInfo,
+             let typeValue = userInfo[AVAudioSessionInterruptionTypeKey] as? UInt,
+             let type = AVAudioSession.InterruptionType(rawValue: typeValue) else {
+                 return
+         }
+
+         // Switch over the interruption type.
+         switch type {
+         case .began:
+             if self.isActive {
+                self.audioRecorder?.pause()
+            }
+         case .ended:
+             guard let optionsValue = userInfo[AVAudioSessionInterruptionOptionKey] as? UInt else { return }
+             let options = AVAudioSession.InterruptionOptions(rawValue: optionsValue)
+             if options.contains(.shouldResume) {
+                 if self.isActive {
+                    self.audioRecorder?.record()
+                 }
+             }
+         default: ()
+         }
+     }
+    
 }
 
 extension RecordingServiceImp: AVAudioRecorderDelegate {
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        self.finishedRecording?(flag)
+        self.recordFinishCallback?(flag)
     }
     
 }

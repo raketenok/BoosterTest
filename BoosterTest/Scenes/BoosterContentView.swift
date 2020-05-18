@@ -9,12 +9,10 @@ import SwiftUI
 
 struct BoosterContentView: View {
     
-    @ObservedObject private var viewModel = BoosterViewModel()
-
+    @EnvironmentObject private var viewModel: BoosterViewModel
     var body: some View {
         
-        GeometryReader { geometry in
-            
+        ZStack {
             VStack(alignment: .center) {
                 
                 Text(self.viewModel.statusTitleText(status: self.viewModel.status))
@@ -27,7 +25,7 @@ struct BoosterContentView: View {
                 Divider()
                     .padding([.leading, .trailing], UIScheme.Spacings.S)
                 
-                BoosterTimerView(viewModel: self.viewModel)
+                BoosterTimerView()
                 
                 Divider()
                     .padding([.leading, .trailing], UIScheme.Spacings.S)
@@ -37,15 +35,34 @@ struct BoosterContentView: View {
                     .padding([.leading, .trailing], UIScheme.Spacings.S)
                     .padding( .bottom, UIScheme.Spacings.M)
                 
-                BoosterPlayButton(viewModel: self.viewModel)
+                BoosterPlayButton()
             }
             .padding(.bottom, UIScheme.Spacings.M)
+            
+            if self.viewModel.isDatePickerShowed {
+                BoosterAlarmPicker()
+            }
+        }
+        .alert(isPresented: self.$viewModel.showAlert) {
+            
+            switch self.viewModel.activeAlert {
+                
+            case .alarm:
+                return Alert(title: Text("Wake up!"), dismissButton: .default(Text("Stop"), action: {
+                    self.viewModel.stopAlarmSounds()
+                }))
+            case .recording:
+                return Alert(title: Text("Recording error"), message: Text("Check settings"))
+            }
         }
     }
 }
 
+#if DEBUG
 struct BoosterContentView_Previews: PreviewProvider {
     static var previews: some View {
         BoosterContentView()
     }
 }
+#endif
+

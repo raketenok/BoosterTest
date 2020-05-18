@@ -12,7 +12,6 @@
 		3B4BE415246C7AF00094B2AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B4BE414246C7AF00094B2AB /* Assets.xcassets */; };
 		3B4BE418246C7AF00094B2AB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B4BE417246C7AF00094B2AB /* Preview Assets.xcassets */; };
 		3B4BE41B246C7AF00094B2AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B4BE419246C7AF00094B2AB /* LaunchScreen.storyboard */; };
-		3B4BE426246C7AF10094B2AB /* BoosterTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE425246C7AF10094B2AB /* BoosterTestTests.swift */; };
 		3B4BE431246C7AF10094B2AB /* BoosterTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE430246C7AF10094B2AB /* BoosterTestUITests.swift */; };
 		3B4BE442246C7B6C0094B2AB /* BoosterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE441246C7B6C0094B2AB /* BoosterContentView.swift */; };
 		3B4BE446246C7BC60094B2AB /* BoosterTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE445246C7BC60094B2AB /* BoosterTimerView.swift */; };
@@ -27,11 +26,21 @@
 		3B4BE458246CB5A40094B2AB /* alarm.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3B4BE455246CB1810094B2AB /* alarm.m4a */; };
 		3B4BE459246CB5A40094B2AB /* nature.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3B4BE454246CB1810094B2AB /* nature.m4a */; };
 		3B4BE45C246D2AAC0094B2AB /* BoosterAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE45B246D2AAC0094B2AB /* BoosterAlarmView.swift */; };
-		3B4BE462246D4EAD0094B2AB /* TimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE461246D4EAD0094B2AB /* TimerService.swift */; };
+		3B4BE462246D4EAD0094B2AB /* PlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE461246D4EAD0094B2AB /* PlayerService.swift */; };
 		3B4BE464246D4F540094B2AB /* AlarmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE463246D4F540094B2AB /* AlarmService.swift */; };
 		3B4BE466246D4F690094B2AB /* RecordingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE465246D4F690094B2AB /* RecordingService.swift */; };
 		3B4BE468246D55100094B2AB /* DefaultFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE467246D55100094B2AB /* DefaultFactory.swift */; };
 		3B4BE46A246D75610094B2AB /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE469246D75610094B2AB /* AppManager.swift */; };
+		3B4BE46E246EECED0094B2AB /* BoosterAlarmPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BE46D246EECED0094B2AB /* BoosterAlarmPicker.swift */; };
+		3B532E57246FE62500D61F87 /* BoosterAlarmPickerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B532E56246FE62500D61F87 /* BoosterAlarmPickerHeader.swift */; };
+		3B532E59246FE7BE00D61F87 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B532E58246FE7BE00D61F87 /* Date+Extensions.swift */; };
+		3B532E5F24719A0800D61F87 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B532E5E24719A0800D61F87 /* NotificationService.swift */; };
+		3B532E612471FF5700D61F87 /* BoosterTestClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B532E602471FF5700D61F87 /* BoosterTestClass.swift */; };
+		3B532E642472000000D61F87 /* PlayerServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B532E632472000000D61F87 /* PlayerServiceMock.swift */; };
+		3B532E662472000E00D61F87 /* AlarmServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B532E652472000E00D61F87 /* AlarmServiceMock.swift */; };
+		3B532E682472001B00D61F87 /* RecordingServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B532E672472001B00D61F87 /* RecordingServiceMock.swift */; };
+		3B532E6A2472002800D61F87 /* NotificationServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B532E692472002800D61F87 /* NotificationServiceMock.swift */; };
+		3B532E6D2472027600D61F87 /* BoosterViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B532E6C2472027600D61F87 /* BoosterViewModelTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +69,6 @@
 		3B4BE41A246C7AF00094B2AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B4BE41C246C7AF00094B2AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B4BE421246C7AF10094B2AB /* BoosterTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoosterTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B4BE425246C7AF10094B2AB /* BoosterTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterTestTests.swift; sourceTree = "<group>"; };
 		3B4BE427246C7AF10094B2AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B4BE42C246C7AF10094B2AB /* BoosterTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoosterTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4BE430246C7AF10094B2AB /* BoosterTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterTestUITests.swift; sourceTree = "<group>"; };
@@ -76,11 +84,21 @@
 		3B4BE454246CB1810094B2AB /* nature.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = nature.m4a; sourceTree = "<group>"; };
 		3B4BE455246CB1810094B2AB /* alarm.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = alarm.m4a; sourceTree = "<group>"; };
 		3B4BE45B246D2AAC0094B2AB /* BoosterAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterAlarmView.swift; sourceTree = "<group>"; };
-		3B4BE461246D4EAD0094B2AB /* TimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerService.swift; sourceTree = "<group>"; };
+		3B4BE461246D4EAD0094B2AB /* PlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerService.swift; sourceTree = "<group>"; };
 		3B4BE463246D4F540094B2AB /* AlarmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmService.swift; sourceTree = "<group>"; };
 		3B4BE465246D4F690094B2AB /* RecordingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingService.swift; sourceTree = "<group>"; };
 		3B4BE467246D55100094B2AB /* DefaultFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFactory.swift; sourceTree = "<group>"; };
 		3B4BE469246D75610094B2AB /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		3B4BE46D246EECED0094B2AB /* BoosterAlarmPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterAlarmPicker.swift; sourceTree = "<group>"; };
+		3B532E56246FE62500D61F87 /* BoosterAlarmPickerHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterAlarmPickerHeader.swift; sourceTree = "<group>"; };
+		3B532E58246FE7BE00D61F87 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		3B532E5E24719A0800D61F87 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		3B532E602471FF5700D61F87 /* BoosterTestClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterTestClass.swift; sourceTree = "<group>"; };
+		3B532E632472000000D61F87 /* PlayerServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerServiceMock.swift; sourceTree = "<group>"; };
+		3B532E652472000E00D61F87 /* AlarmServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmServiceMock.swift; sourceTree = "<group>"; };
+		3B532E672472001B00D61F87 /* RecordingServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingServiceMock.swift; sourceTree = "<group>"; };
+		3B532E692472002800D61F87 /* NotificationServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationServiceMock.swift; sourceTree = "<group>"; };
+		3B532E6C2472027600D61F87 /* BoosterViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterViewModelTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,7 +175,9 @@
 		3B4BE424246C7AF10094B2AB /* BoosterTestTests */ = {
 			isa = PBXGroup;
 			children = (
-				3B4BE425246C7AF10094B2AB /* BoosterTestTests.swift */,
+				3B532E602471FF5700D61F87 /* BoosterTestClass.swift */,
+				3B532E622471FFDA00D61F87 /* Mocks */,
+				3B532E6B2472024D00D61F87 /* ViewModel */,
 				3B4BE427246C7AF10094B2AB /* Info.plist */,
 			);
 			path = BoosterTestTests;
@@ -177,7 +197,7 @@
 			children = (
 				3B4BE44B246C7CF30094B2AB /* BoosterViewModel.swift */,
 				3B4BE441246C7B6C0094B2AB /* BoosterContentView.swift */,
-				3B4BE443246C7B8E0094B2AB /* Helpers */,
+				3B4BE443246C7B8E0094B2AB /* HelpersViews */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -188,18 +208,19 @@
 				3B4BE453246CB1770094B2AB /* Sounds */,
 				3B4BE449246C7BEB0094B2AB /* UIScheme.swift */,
 				3B4BE451246CA4500094B2AB /* Callbacks.swift */,
+				3B532E58246FE7BE00D61F87 /* Date+Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		3B4BE443246C7B8E0094B2AB /* Helpers */ = {
+		3B4BE443246C7B8E0094B2AB /* HelpersViews */ = {
 			isa = PBXGroup;
 			children = (
 				3B4BE45E246D450F0094B2AB /* Alarm */,
 				3B4BE45D246D45060094B2AB /* Timer */,
 				3B4BE460246D45210094B2AB /* PlayButton */,
 			);
-			path = Helpers;
+			path = HelpersViews;
 			sourceTree = "<group>";
 		};
 		3B4BE453246CB1770094B2AB /* Sounds */ = {
@@ -214,9 +235,10 @@
 		3B4BE45A246CB60A0094B2AB /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				3B4BE461246D4EAD0094B2AB /* TimerService.swift */,
+				3B4BE461246D4EAD0094B2AB /* PlayerService.swift */,
 				3B4BE463246D4F540094B2AB /* AlarmService.swift */,
 				3B4BE465246D4F690094B2AB /* RecordingService.swift */,
+				3B532E5E24719A0800D61F87 /* NotificationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -235,6 +257,8 @@
 			children = (
 				3B4BE45B246D2AAC0094B2AB /* BoosterAlarmView.swift */,
 				3B4BE44D246C9A830094B2AB /* BoosterAlarmButton.swift */,
+				3B4BE46D246EECED0094B2AB /* BoosterAlarmPicker.swift */,
+				3B532E56246FE62500D61F87 /* BoosterAlarmPickerHeader.swift */,
 			);
 			path = Alarm;
 			sourceTree = "<group>";
@@ -245,6 +269,25 @@
 				3B4BE447246C7BDE0094B2AB /* BoosterPlayButton.swift */,
 			);
 			path = PlayButton;
+			sourceTree = "<group>";
+		};
+		3B532E622471FFDA00D61F87 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				3B532E632472000000D61F87 /* PlayerServiceMock.swift */,
+				3B532E652472000E00D61F87 /* AlarmServiceMock.swift */,
+				3B532E672472001B00D61F87 /* RecordingServiceMock.swift */,
+				3B532E692472002800D61F87 /* NotificationServiceMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		3B532E6B2472024D00D61F87 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3B532E6C2472027600D61F87 /* BoosterViewModelTest.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -381,7 +424,9 @@
 			files = (
 				3B4BE456246CB3FB0094B2AB /* alarm.m4a in Sources */,
 				3B4BE464246D4F540094B2AB /* AlarmService.swift in Sources */,
+				3B532E59246FE7BE00D61F87 /* Date+Extensions.swift in Sources */,
 				3B4BE457246CB3FB0094B2AB /* nature.m4a in Sources */,
+				3B532E57246FE62500D61F87 /* BoosterAlarmPickerHeader.swift in Sources */,
 				3B4BE468246D55100094B2AB /* DefaultFactory.swift in Sources */,
 				3B4BE44A246C7BEB0094B2AB /* UIScheme.swift in Sources */,
 				3B4BE450246C9BC90094B2AB /* BoosterTimerButton.swift in Sources */,
@@ -389,14 +434,16 @@
 				3B4BE45C246D2AAC0094B2AB /* BoosterAlarmView.swift in Sources */,
 				3B4BE411246C7AED0094B2AB /* SceneDelegate.swift in Sources */,
 				3B4BE446246C7BC60094B2AB /* BoosterTimerView.swift in Sources */,
+				3B532E5F24719A0800D61F87 /* NotificationService.swift in Sources */,
 				3B4BE448246C7BDE0094B2AB /* BoosterPlayButton.swift in Sources */,
 				3B4BE452246CA4500094B2AB /* Callbacks.swift in Sources */,
 				3B4BE44E246C9A830094B2AB /* BoosterAlarmButton.swift in Sources */,
-				3B4BE462246D4EAD0094B2AB /* TimerService.swift in Sources */,
+				3B4BE462246D4EAD0094B2AB /* PlayerService.swift in Sources */,
 				3B4BE44C246C7CF30094B2AB /* BoosterViewModel.swift in Sources */,
 				3B4BE46A246D75610094B2AB /* AppManager.swift in Sources */,
 				3B4BE442246C7B6C0094B2AB /* BoosterContentView.swift in Sources */,
 				3B4BE466246D4F690094B2AB /* RecordingService.swift in Sources */,
+				3B4BE46E246EECED0094B2AB /* BoosterAlarmPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,7 +451,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B4BE426246C7AF10094B2AB /* BoosterTestTests.swift in Sources */,
+				3B532E6A2472002800D61F87 /* NotificationServiceMock.swift in Sources */,
+				3B532E662472000E00D61F87 /* AlarmServiceMock.swift in Sources */,
+				3B532E682472001B00D61F87 /* RecordingServiceMock.swift in Sources */,
+				3B532E642472000000D61F87 /* PlayerServiceMock.swift in Sources */,
+				3B532E612471FF5700D61F87 /* BoosterTestClass.swift in Sources */,
+				3B532E6D2472027600D61F87 /* BoosterViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +613,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"BoosterTest/Preview Content\"";
 				DEVELOPMENT_TEAM = HC283GCJT3;
@@ -570,8 +623,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = raketenok.BoosterTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boosterTest.raketenok;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -581,6 +635,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"BoosterTest/Preview Content\"";
 				DEVELOPMENT_TEAM = HC283GCJT3;
@@ -590,8 +645,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = raketenok.BoosterTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boosterTest.raketenok;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -603,7 +659,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HC283GCJT3;
+				DEVELOPMENT_TEAM = DEMAEM79RP;
 				INFOPLIST_FILE = BoosterTestTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -625,7 +681,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HC283GCJT3;
+				DEVELOPMENT_TEAM = DEMAEM79RP;
 				INFOPLIST_FILE = BoosterTestTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
