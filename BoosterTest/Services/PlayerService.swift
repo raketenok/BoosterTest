@@ -105,7 +105,6 @@ class PlayerServiceImp: NSObject, PlayerService {
         // Switch over the interruption type.
         switch type {
         case .began:
-            print("")
             self.player?.stop()
         case .ended:
             guard let optionsValue = userInfo[AVAudioSessionInterruptionOptionKey] as? UInt else { return }

@@ -124,7 +124,6 @@ class RecordingServiceImp: NSObject, RecordingService {
          // Switch over the interruption type.
          switch type {
          case .began:
-             print("")
              if self.isActive {
                 self.audioRecorder?.pause()
             }
