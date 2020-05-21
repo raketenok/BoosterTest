@@ -113,8 +113,9 @@ class BoosterViewModel: ObservableObject {
                 //Timer isn't running
                 //Immediately start recording if timer is off
                 self.status = .Recording
-                self.recordingService.startRecording()
+                self.recordingService.continueRecording()
             }
+            self.recordingService.startRecordingSessionIfNeed()
 
         } else {
             self.status = .Paused
@@ -135,12 +136,12 @@ class BoosterViewModel: ObservableObject {
         self.isPlaying = false
         self.stopSoundsAndRecording()
         self.timerData = data
-        self.timerRemaining = self.timerData.rawValue * 60
+        self.timerRemaining = self.timerData.rawValue * 5
     }
     
     //MARK: Private
     private func stopSoundsAndRecording() {
+        self.recordingService.stopRecording(removeRecord: self.timerRemaining > 0)
         self.playerService.stopSounds()
-        self.recordingService.stopRecording()
     }
 }

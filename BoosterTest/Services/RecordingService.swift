@@ -20,19 +20,23 @@ extension RecordingServiceFactory {
 }
 
 protocol RecordingService: AppService {
-
+    func continueRecording()
+    func startRecordingSessionIfNeed()
     func startRecording()
-    func stopRecording()
+    func stopRecording(removeRecord: Bool)
     func pauseRecording()
     var recordFinishCallback: (BoolCallback)? { get set }
 }
 
 class RecordingServiceImp: NSObject, RecordingService {
+   
+    
     
     typealias Factory = DefaultFactory
     private var audioRecorder: AVAudioRecorder?
     private let theSession = AVAudioSession.sharedInstance()
     private var isActive = false
+    private var trackName: String! = ""
     
     init(factory: Factory = DefaultFactory()) {
         super.init()
@@ -52,15 +56,27 @@ class RecordingServiceImp: NSObject, RecordingService {
         self.audioRecorder?.pause()
     }
     
-    func stopRecording() {
+    func stopRecording(removeRecord: Bool) {
+        self.trackName = ""
         self.audioRecorder?.stop()
+        if removeRecord {
+           self.audioRecorder?.deleteRecording()
+        }
         self.isActive = false
     }
     
-    func startRecording() {
+    func continueRecording() {
+        guard self.isActive else { return }
+        self.audioRecorder?.record()
+    }
+    
+    func startRecordingSessionIfNeed() {
+        
+        guard !self.isActive else { return }
+        //Run for first time
         do {
             try self.theSession.setCategory(.playAndRecord, options: .mixWithOthers)
-
+            
             try self.theSession.setActive(true)
             self.requestRecordingPermission { success in
                 
@@ -68,19 +84,26 @@ class RecordingServiceImp: NSObject, RecordingService {
                     self.recordFinishCallback?(false)
                     return
                 }
-                self.record()
-            }            
+                //Set trackName and start recording immediately
+                self.trackName = "\(Date())"
+                self.record(trackName: self.trackName)
+            }
         } catch {
             self.recordFinishCallback?(false)
         }
     }
     
+    func startRecording() {
+        //Rewrite audio file with current trackName
+        self.record(trackName: self.trackName)
+    }
+    
     //MARK: Private
-    private func record() {
+    private func record(trackName: String) {
         
         guard let directory = self.getDocumentsDirectory() else { return }
-        
-        let audioFilename = directory.appendingPathComponent("\(Date()).m4a")
+
+        let audioFilename = directory.appendingPathComponent("\(trackName).m4a")
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -92,7 +115,6 @@ class RecordingServiceImp: NSObject, RecordingService {
         do {
             self.audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             guard let audioRecorder = self.audioRecorder else { return }
-            
             audioRecorder.delegate = self
             audioRecorder.record()
             self.isActive = true
@@ -113,14 +135,12 @@ class RecordingServiceImp: NSObject, RecordingService {
          }
     }
     
-    
     @objc private func handleInterruption(notification: Notification) {
          guard let userInfo = notification.userInfo,
              let typeValue = userInfo[AVAudioSessionInterruptionTypeKey] as? UInt,
              let type = AVAudioSession.InterruptionType(rawValue: typeValue) else {
                  return
          }
-
          // Switch over the interruption type.
          switch type {
          case .began:

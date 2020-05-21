@@ -9,12 +9,20 @@ import Foundation
 @testable import BoosterTest
 
 class RecordingServiceMock: NSObject, RecordingService {
-    
-    func startRecording() {
+  
+    func continueRecording() {
         self.recordFinishCallback?(false)
     }
     
-    func stopRecording() {
+    func startRecordingSessionIfNeed() {
+        self.recordFinishCallback?(false)
+    }
+    
+    func stopRecording(removeRecord: Bool) {
+        self.recordFinishCallback?(false)
+    }
+    
+    func startRecording() {
         self.recordFinishCallback?(false)
     }
     
