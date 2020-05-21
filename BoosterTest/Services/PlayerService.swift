@@ -80,7 +80,7 @@ class PlayerServiceImp: NSObject, PlayerService {
         guard let url = Bundle.main.url(forResource: trackName, withExtension: "m4a") else { return }
 
         do {
-            try self.theSession.setCategory(.playback, options: .mixWithOthers)
+            try self.theSession.setCategory(.playAndRecord, options: .mixWithOthers)
 
             try self.theSession.setActive(true)
 
