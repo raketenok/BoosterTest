@@ -22,6 +22,8 @@ class UIScheme {
     enum ConstantsLabels {
         static let alarm = NSLocalizedString("Alarm", comment: "alarm")
         static let sleepTimer = NSLocalizedString("Sleep timer", comment: "Sleeper")
+        static let natureTrack = "nature"
+        static let alarmTrack = "alarm"
     }
     
 }

@@ -10,6 +10,7 @@ import Foundation
 class DefaultFactory {}
 
 //MARK: Services
-extension DefaultFactory: TimerServiceFactory {}
+extension DefaultFactory: PlayerServiceFactory {}
 extension DefaultFactory: AlarmServiceFactory {}
 extension DefaultFactory: RecordingServiceFactory {}
+extension DefaultFactory: NotificationServiceFactory {}

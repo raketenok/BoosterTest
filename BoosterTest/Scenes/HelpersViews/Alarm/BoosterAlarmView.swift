@@ -9,6 +9,8 @@ import SwiftUI
 
 struct BoosterAlarmView: View {
     
+    @EnvironmentObject private var viewModel: BoosterViewModel
+
     var body: some View {
         HStack {
             Text(UIScheme.ConstantsLabels.alarm)
